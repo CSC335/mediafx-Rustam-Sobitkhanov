@@ -28,7 +28,8 @@ public class PlayAnMP3 extends Application {
   @Override
   public void start(Stage stage) throws Exception {
     BorderPane pane = new BorderPane();
-    String path = "songfiles/Capture.mp3";
+    // I, Rustambek Sobithanov, changed the song to a different one
+    String path = "songfiles/SwingCheese.mp3";		
     pane.setCenter( new Label(path));
     playASong(path);
     // Put the pane in a sized Scene and show the GUI
@@ -44,12 +45,15 @@ public class PlayAnMP3 extends Application {
     // Need a File and URI object so the path works on all OSs
     File file = new File(path);
     URI uri = file.toURI();
-    System.out.println(uri);
+    
     // Play one mp3 and and have code run when the song ends
     Media media = new Media(uri.toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
     mediaPlayer.play();
-      
+    
+    // I moved the print statement to a few lines below its original position
+    System.out.println(uri);
+    
     mediaPlayer.setOnEndOfMedia(new Waiter());
     System.out.println("You may need to shut this App down");
  
